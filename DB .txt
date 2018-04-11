@@ -1,0 +1,17 @@
+use MyCloud
+create table Users
+(
+id int not null identity primary key,
+Nickname varchar(100) not null,
+Password varchar(100) not null,
+)
+create table Files
+(
+File_id int not null identity primary key,
+format varchar(50),
+Name varchar(100) not null,
+Way varbinary(max) not null,
+user_id int not null,
+CONSTRAINT FK_File_User FOREIGN KEY (user_id)
+REFERENCES Users(id)
+)
